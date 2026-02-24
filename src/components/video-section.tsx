@@ -7,7 +7,7 @@ import video1 from "../../public/video1.mp4";
 
 const videos = [
   {
-    title: "Marcus Chen @ TechFit Apparel",
+    title: "Anthony Tambellini @ High Ticket eCom Program",
     src: video1,
   },
 ];

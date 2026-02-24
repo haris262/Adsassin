@@ -1,11 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ChevronDown,
+  ArrowRight,
+  CheckCircle2,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
+// @ts-ignore
 import logo from "../../public/Adsassin - Logo - Horizontal - Negative - White 1.png";
+
+const SERVICE_ID = "service_wz3a3pa";
+const TEMPLATE_ID = "template_ciyrovl";
+const PUBLIC_KEY = "QyQqp4V-AQ3wrKD-n";
 
 export function HeroSection() {
   const [focused, setFocused] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,8 +35,36 @@ export function HeroSection() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  // @ts-ignore
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY);
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        website: "",
+        spend: "",
+        frustration: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section id="lead-form" className="min-h-screen flex flex-col lg:flex-row">
+    <section
+      id="lead-form"
+      className="min-h-screen flex flex-col-reverse lg:flex-row"
+    >
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center px-8 lg:px-16 xl:px-24 py-16 lg:py-0 order-2 lg:order-1">
         <div className="mb-12">
           <img
@@ -112,16 +157,17 @@ export function HeroSection() {
             <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-[var(--primary)]" />
             <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-[var(--primary)]" />
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="relative">
                 <input
+                  required
                   type="text"
                   id="name"
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   onFocus={() => setFocused("name")}
                   onBlur={() => setFocused(null)}
-                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors autofill:shadow-[inset_0_0_0px_1000px_var(--background)] autofill:[-webkit-text-fill-color:var(--foreground)]"
                   placeholder="Name"
                 />
                 <label
@@ -138,13 +184,14 @@ export function HeroSection() {
 
               <div className="relative">
                 <input
+                  required
                   type="email"
                   id="email"
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   onFocus={() => setFocused("email")}
                   onBlur={() => setFocused(null)}
-                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors autofill:shadow-[inset_0_0_0px_1000px_var(--background)] autofill:[-webkit-text-fill-color:var(--foreground)]"
                   placeholder="Email"
                 />
                 <label
@@ -161,13 +208,14 @@ export function HeroSection() {
 
               <div className="relative">
                 <input
-                  type="url"
+                  required
+                  type="text"
                   id="website"
                   value={formData.website}
                   onChange={(e) => handleChange("website", e.target.value)}
                   onFocus={() => setFocused("website")}
                   onBlur={() => setFocused(null)}
-                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  className="peer w-full bg-transparent border-b-2 border-[var(--border)] py-3 px-0 text-[var(--foreground)] placeholder-transparent focus:border-[var(--primary)] focus:outline-none transition-colors autofill:shadow-[inset_0_0_0px_1000px_var(--background)] autofill:[-webkit-text-fill-color:var(--foreground)]"
                   placeholder="Website"
                 />
                 <label
@@ -184,6 +232,7 @@ export function HeroSection() {
 
               <div className="relative">
                 <select
+                  required
                   id="spend"
                   value={formData.spend}
                   onChange={(e) => handleChange("spend", e.target.value)}
@@ -230,6 +279,7 @@ export function HeroSection() {
 
               <div className="relative">
                 <textarea
+                  required
                   id="frustration"
                   value={formData.frustration}
                   onChange={(e) => handleChange("frustration", e.target.value)}
@@ -254,16 +304,44 @@ export function HeroSection() {
               <div className="flex flex-col items-center gap-4 pt-2">
                 <button
                   type="submit"
-                  className="group w-full inline-flex items-center justify-center gap-3 bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-semibold py-4 px-10 transition-all duration-300 hover:gap-4"
+                  disabled={isSubmitting}
+                  className="group w-full inline-flex items-center justify-center gap-3 bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-semibold py-4 px-10 transition-all duration-300 hover:gap-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Request My Free Audit
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  {isSubmitting ? (
+                    <>
+                      Sending...
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Request My Free Audit
+                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </>
+                  )}
                 </button>
                 <div className="flex items-center gap-2 text-xs text-[var(--muted-foreground)]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
                   <span>No credit card required</span>
                 </div>
               </div>
+
+              {submitStatus === "success" && (
+                <div className="flex items-center justify-center gap-2 text-green-500 bg-green-500/10 p-3 rounded border border-green-500/20 w-full mt-2">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <p className="font-medium text-sm">
+                    Application received. We'll be in touch shortly.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="flex items-center justify-center gap-2 text-red-500 bg-red-500/10 p-3 rounded border border-red-500/20 w-full mt-2">
+                  <AlertCircle className="w-5 h-5" />
+                  <p className="font-medium text-sm">
+                    Something went wrong. Please try again later.
+                  </p>
+                </div>
+              )}
             </form>
           </div>
         </div>

@@ -16,16 +16,14 @@ const testimonials = [
       "He’s one of the best people I’ve had the opportunity to work with, and I would strongly recommend him to anyone serious about scaling with Google Ads.\n" +
       "\n" +
       "If you’re looking for a real partner, not just another agency, Naid is your guy.\n",
-    name: "Sarah Mitchell",
-    brand: "Luxe Home Goods",
-    result: "133% ROAS increase",
+    name: "Zaid",
+    brand: "@ Indoor Golf Essentials",
   },
   {
     quote:
       "Naid is one of a kind. He doesn’t just help you manage your ads. He genuinely cares about you, your business, and even helps you find opportunities, and you feel as if he is a partner in the trenches with you helping you succeed. I couldn’t ask for a better Ad agency. Adsassin is the way to go if you are looking to scale with 1:1 tailored support! ",
-    name: "Marcus Chen",
-    brand: "TechFit Apparel",
-    result: "2x conversions",
+    name: "Abdel ",
+    brand: "@ Solar Guys Pro",
   },
 ];
 
@@ -55,11 +53,6 @@ function TestimonialCard({ testimonial }) {
           <p className="font-semibold text-lg">{testimonial.name}</p>
           <p className="text-[var(--muted-foreground)]">{testimonial.brand}</p>
         </div>
-        <div className="mt-6 lg:mt-0">
-          <span className="inline-block px-4 py-2 bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-semibold">
-            {testimonial.result}
-          </span>
-        </div>
       </div>
     </div>
   );
@@ -69,12 +62,13 @@ export function TestimonialsSection() {
   return (
     <section className="py-32 px-8 lg:px-16 bg-[var(--card)]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-20">
-          <div className="flex items-center gap-4 mb-6">
+        <div className="mb-20 text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-[var(--primary)]" />
             <span className="text-sm font-medium text-[var(--primary)] uppercase tracking-wider">
               Results
             </span>
+            <div className="w-12 h-px bg-[var(--primary)]" />
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold">What Clients Say</h2>
         </div>

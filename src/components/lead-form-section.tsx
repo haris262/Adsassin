@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
-// REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
 const SERVICE_ID = "service_wz3a3pa";
 const TEMPLATE_ID = "template_ciyrovl";
 const PUBLIC_KEY = "QyQqp4V-AQ3wrKD-n";
@@ -35,7 +34,6 @@ export function LeadFormSection() {
     setSubmitStatus("idle");
 
     try {
-      // Sending data as a plain object corresponds to variables in your EmailJS template
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY);
 
       setSubmitStatus("success");
@@ -57,7 +55,6 @@ export function LeadFormSection() {
   return (
     <section id="lead-form" className="py-32 px-8 lg:px-16 bg-[var(--card)]">
       <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-px bg-[var(--primary)]" />
@@ -74,16 +71,13 @@ export function LeadFormSection() {
           </p>
         </div>
 
-        {/* Modern Form */}
         <div className="relative bg-[var(--background)] border border-[var(--border)] p-8 lg:p-12">
-          {/* Corner Accents */}
           <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[var(--primary)]" />
           <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[var(--primary)]" />
           <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[var(--primary)]" />
           <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[var(--primary)]" />
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Row 1: Name & Email */}
             <div className="grid md:grid-cols-2 gap-8">
               <div className="relative">
                 <input
@@ -134,12 +128,11 @@ export function LeadFormSection() {
               </div>
             </div>
 
-            {/* Row 2: Website & Spend */}
             <div className="grid md:grid-cols-2 gap-8">
               <div className="relative">
                 <input
                   required
-                  type="url"
+                  type="text"
                   id="website"
                   value={formData.website}
                   onChange={(e) => handleChange("website", e.target.value)}
@@ -208,7 +201,6 @@ export function LeadFormSection() {
               </div>
             </div>
 
-            {/* Frustration Textarea */}
             <div className="relative">
               <textarea
                 required
@@ -229,11 +221,10 @@ export function LeadFormSection() {
                     : "top-4 text-[var(--muted-foreground)]"
                 }`}
               >
-                What{"'"}s your biggest frustration with Google Ads right now?
+                What's your biggest frustration with Google Ads right now?
               </label>
             </div>
 
-            {/* Submit Button & Status Messages */}
             <div className="flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
                 <button
@@ -260,7 +251,6 @@ export function LeadFormSection() {
                 </div>
               </div>
 
-              {/* Success/Error Feedback */}
               {submitStatus === "success" && (
                 <div className="flex items-center gap-2 text-green-500 bg-green-500/10 p-4 rounded border border-green-500/20">
                   <CheckCircle2 className="w-5 h-5" />

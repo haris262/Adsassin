@@ -1,6 +1,6 @@
 export function PhilosophySection() {
   return (
-    <section className="py-32 px-8 lg:px-16">
+    <section className="py-32 px-8 lg:px-16 pb-0">
       <div className="max-w-4xl mx-auto text-center">
         {/* Centered Eyebrow with red lines */}
         <div className="flex items-center justify-center gap-4 mb-6">
