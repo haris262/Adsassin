@@ -12,7 +12,7 @@ import emailjs from "@emailjs/browser";
 // @ts-ignore
 import logo from "../../public/Adsassin - Logo - Horizontal - Negative - White 1.png";
 
-const SERVICE_ID = "service_wz3a3pa";
+const SERVICE_ID = "service_8ayz7rp";
 const TEMPLATE_ID = "template_ciyrovl";
 const PUBLIC_KEY = "QyQqp4V-AQ3wrKD-n";
 
