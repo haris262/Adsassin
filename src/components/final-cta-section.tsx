@@ -1,6 +1,8 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+// @ts-ignore
+import logo from "../../public/Adsassin - Logo - Horizontal - Negative - White 1.png";
 
 export function FinalCtaSection() {
   const scrollToForm = () => {
@@ -39,11 +41,12 @@ export function FinalCtaSection() {
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-[var(--border)]">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[var(--primary)] flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
-              </div>
-              <span className="font-semibold">Adsassin</span>
+            <div className="mb-2">
+              <img
+                src={logo.src ?? logo}
+                alt="Adsassin Logo"
+                className="h-12 w-auto"
+              />
             </div>
 
             <p className="text-sm text-[var(--muted-foreground)] text-center">
