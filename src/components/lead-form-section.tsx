@@ -28,6 +28,7 @@ export function LeadFormSection() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  // @ts-ignore
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);

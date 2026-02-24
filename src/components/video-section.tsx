@@ -2,19 +2,12 @@
 
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
+// @ts-ignore
 import video1 from "../../public/video1.mp4";
 
 const videos = [
   {
-    title: "Sarah Mitchell - 133% ROAS Increase",
-    src: video1,
-  },
-  {
-    title: "Marcus Chen - 2x Conversions",
-    src: video1,
-  },
-  {
-    title: "Client Case Study - Scaling to $800k/mo",
+    title: "Marcus Chen @ TechFit Apparel",
     src: video1,
   },
 ];
@@ -48,7 +41,7 @@ function VideoCard({ video }) {
 
   return (
     <div
-      className="group relative aspect-[9/16] bg-[var(--card)] border border-[var(--border)] overflow-hidden cursor-pointer hover:border-[var(--primary)]/40 transition-all duration-300"
+      className="group relative w-full sm:w-[340px] mx-auto aspect-[9/16] bg-[var(--card)] border border-[var(--border)] overflow-hidden cursor-pointer hover:border-[var(--primary)]/40 transition-all duration-300"
       onClick={togglePlay}
     >
       <video
@@ -98,7 +91,7 @@ export function VideoSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {videos.map((video, index) => (
             <VideoCard key={index} video={video} />
           ))}

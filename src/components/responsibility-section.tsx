@@ -30,7 +30,11 @@ const responsibilities = [
   {
     icon: Package,
     title: "Product Content",
-    points: ["Quality imagery", "Compelling descriptions", "Complete product data"],
+    points: [
+      "Quality imagery",
+      "Compelling descriptions",
+      "Complete product data",
+    ],
     note: "Ads can drive traffic, not desire.",
   },
 ];
@@ -39,20 +43,21 @@ export function ResponsibilitySection() {
   return (
     <section className="py-32 px-8 lg:px-16 bg-[var(--card)]">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-20 max-w-2xl">
-          <div className="flex items-center gap-4 mb-6">
+        {/* Header - Centered */}
+        <div className="mb-20 text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-[var(--primary)]" />
             <span className="text-sm font-medium text-[var(--primary)] uppercase tracking-wider">
               Shared Responsibility
             </span>
+            <div className="w-12 h-px bg-[var(--primary)]" />
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             What We{"'"}ll Need From You
           </h2>
-          <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
-            Great Google Ads results require more than just great ads. Here{"'"}s
-            what needs to be in place on your end for us to succeed together.
+          <p className="text-lg text-[var(--muted-foreground)] leading-relaxed max-w-2xl mx-auto">
+            Great Google Ads results require more than just great ads. Here{"'"}
+            s what needs to be in place on your end for us to succeed together.
           </p>
         </div>
 
@@ -94,7 +99,7 @@ export function ResponsibilitySection() {
         </div>
 
         {/* Bottom Note */}
-        <div className="mt-12 p-6 border border-[var(--border)] bg-[var(--background)]">
+        <div className="mt-12 p-6 border border-[var(--border)] bg-[var(--background)] text-center">
           <p className="text-[var(--muted-foreground)]">
             <span className="text-[var(--foreground)] font-medium">Note:</span>{" "}
             We{"'"}ll help identify gaps during the audit. No judgment, just

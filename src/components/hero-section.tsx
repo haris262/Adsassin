@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ArrowRight, CheckCircle2 } from "lucide-react";
+import logo from "../../public/Adsassin - Logo - Horizontal - Negative - White 1.png";
 
 export function HeroSection() {
   const [focused, setFocused] = useState<string | null>(null);
@@ -19,21 +20,15 @@ export function HeroSection() {
 
   return (
     <section id="lead-form" className="min-h-screen flex flex-col lg:flex-row">
-      {/* Left: Content - 50% */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center px-8 lg:px-16 xl:px-24 py-16 lg:py-0 order-2 lg:order-1">
-        {/* Logo */}
         <div className="mb-12">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-[var(--primary)] flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="text-xl font-bold tracking-tight">
-              Ad<span className="text-[var(--primary)]">Sassin</span>
-            </span>
-          </div>
+          <img
+            src={logo.src ?? logo}
+            alt="Adsassin Logo"
+            className="h-12 w-auto"
+          />
         </div>
 
-        {/* Badge */}
         <div className="mb-8">
           <div className="flex items-center justify-center gap-4">
             <div className="w-8 h-px bg-[var(--primary)]" />
@@ -44,7 +39,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Headline */}
         <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
           Google Ads That
           <br />
@@ -53,13 +47,11 @@ export function HeroSection() {
           Like a Gamble
         </h1>
 
-        {/* Subheadline */}
         <p className="text-lg xl:text-xl text-[var(--muted-foreground)] leading-relaxed mb-10 max-w-lg">
           For e-commerce brands tired of inconsistent performance, unclear
           results, and wasted spend.
         </p>
 
-        {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
           <button
             onClick={() => {
@@ -77,7 +69,6 @@ export function HeroSection() {
           </span>
         </div>
 
-        {/* Stats Row */}
         <div className="flex items-center justify-center gap-8 pt-8 border-t border-[var(--border)] w-full max-w-md">
           <div>
             <p className="text-2xl font-bold">$40M+</p>
@@ -85,7 +76,6 @@ export function HeroSection() {
               Ad Spend Managed
             </p>
           </div>
-          <div className="w-px h-10 bg-[var(--border)]" />
           <div className="w-px h-10 bg-[var(--border)]" />
           <div>
             <p className="text-2xl font-bold">100+</p>
@@ -96,13 +86,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Right: Form - 50% Full Height */}
       <div className="w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen relative order-1 lg:order-2 bg-[var(--card)] flex items-center justify-center px-6 py-16 lg:px-12 xl:px-16">
-        {/* Accent Line */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--primary)] via-[var(--primary)]/50 to-transparent hidden lg:block" />
 
         <div id="hero-form" className="w-full max-w-lg">
-          {/* Form Header */}
           <div className="mb-10 text-center">
             <div className="flex items-center justify-center gap-4 mb-5">
               <div className="w-10 h-px bg-[var(--primary)]" />
@@ -119,16 +106,13 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Form */}
           <div className="relative bg-[var(--background)] border border-[var(--border)] p-6 lg:p-8">
-            {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-[var(--primary)]" />
             <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-[var(--primary)]" />
             <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-[var(--primary)]" />
             <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-[var(--primary)]" />
 
             <form className="space-y-6">
-              {/* Name */}
               <div className="relative">
                 <input
                   type="text"
@@ -152,7 +136,6 @@ export function HeroSection() {
                 </label>
               </div>
 
-              {/* Email */}
               <div className="relative">
                 <input
                   type="email"
@@ -176,7 +159,6 @@ export function HeroSection() {
                 </label>
               </div>
 
-              {/* Website */}
               <div className="relative">
                 <input
                   type="url"
@@ -200,7 +182,6 @@ export function HeroSection() {
                 </label>
               </div>
 
-              {/* Monthly Spend */}
               <div className="relative">
                 <select
                   id="spend"
@@ -247,7 +228,6 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {/* Frustration */}
               <div className="relative">
                 <textarea
                   id="frustration"
@@ -271,7 +251,6 @@ export function HeroSection() {
                 </label>
               </div>
 
-              {/* Submit */}
               <div className="flex flex-col items-center gap-4 pt-2">
                 <button
                   type="submit"

@@ -37,7 +37,7 @@ function TestimonialCard({ testimonial }) {
       <div>
         <blockquote
           className={`text-xl lg:text-xl font-light leading-relaxed text-[var(--foreground)] whitespace-pre-wrap ${
-            !isExpanded ? "line-clamp-4" : ""
+            !isExpanded ? "line-clamp-6" : ""
           }`}
         >
           &ldquo;{testimonial.quote}&rdquo;

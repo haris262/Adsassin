@@ -18,8 +18,8 @@ export default function MainComponent() {
       <ApproachSection />
       <ResponsibilitySection />
       <PhilosophySection />
-      <TestimonialsSection />
       <VideoSection />
+      <TestimonialsSection />
       <FinalCtaSection />
     </main>
   );
