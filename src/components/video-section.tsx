@@ -3,12 +3,18 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
 // @ts-ignore
-import video1 from "../../public/video1.mp4";
+import video1 from "../assets/video1.mp4";
+// @ts-ignore
+import video2 from "../assets/arnold.mp4";
 
 const videos = [
   {
     title: "Anthony Tambellini @ High Ticket eCom Program",
     src: video1,
+  },
+  {
+    title: "Arnold @ Morelli Medical",
+    src: video2,
   },
 ];
 
