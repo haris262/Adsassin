@@ -6,6 +6,8 @@ import { Play } from "lucide-react";
 import video1 from "../assets/video1.mp4";
 // @ts-ignore
 import video2 from "../assets/arnold.mp4";
+// @ts-ignore
+import video3 from "../assets/ethan.mp4";
 
 const videos = [
   {
@@ -15,6 +17,10 @@ const videos = [
   {
     title: "Arnold @ Morelli Medical",
     src: video2,
+  },
+  {
+    title: " Ethan @ Distinct Designs",
+    src: video3,
   },
 ];
 
